@@ -1,61 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>BHUMI-CHAIN | SIH 26016</title>
+  <title>BHUMI-CHAIN | SIH 26016</title>
 
-<style>
-/* =========================================================
-   BHUMI-CHAIN — SMART INDIA HACKATHON PRESENTATION
-   Modern Government Digital Platform Theme
-   ========================================================= */
+  <style>
+    /* =========================================================
+       BHUMI-CHAIN — INTERACTIVE SIH PRESENTATION
+       Problem Statement ID: 26016
+       ========================================================= */
 
-:root {
-    --navy: #0b2742;
-    --navy-2: #123d63;
-    --blue: #1f5f99;
-    --blue-light: #eaf3fa;
+    :root {
+      --navy: #0b1f33;
+      --navy-2: #102a43;
+      --blue: #1f5f8b;
+      --gov-blue: #2563a6;
+      --sky: #eaf2f8;
+      --white: #ffffff;
+      --text: #132238;
+      --muted: #617085;
+      --border: #dbe3eb;
 
-    --green: #16865b;
-    --green-light: #eaf7f0;
+      --success: #18794e;
+      --success-bg: #e9f7ef;
 
-    --saffron: #e8861c;
-    --saffron-light: #fff4e7;
+      --warning: #b7791f;
+      --warning-bg: #fff7e5;
 
-    --red: #c93c3c;
-    --red-light: #fff0f0;
+      --danger: #b42318;
+      --danger-bg: #fff0ef;
 
-    --purple: #6851a8;
-    --purple-light: #f1effb;
+      --info: #2563eb;
+      --info-bg: #eff6ff;
 
-    --gray-900: #1d2935;
-    --gray-700: #465563;
-    --gray-500: #71808d;
-    --gray-300: #d9e0e5;
-    --gray-200: #e8edf1;
-    --gray-100: #f4f7f9;
-    --white: #ffffff;
+      --shadow:
+        0 20px 60px rgba(15, 35, 55, 0.10);
 
-    --shadow:
-        0 10px 30px rgba(12, 39, 66, .08);
+      --radius: 22px;
+      --max-width: 1280px;
+    }
 
-    --radius: 18px;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family:
+    body {
+      margin: 0;
+      font-family:
         Inter,
         ui-sans-serif,
         system-ui,
@@ -64,2830 +61,2454 @@ body {
         "Segoe UI",
         sans-serif;
 
-    background: var(--gray-100);
-    color: var(--gray-900);
-}
-
-/* =========================================================
-   PRESENTATION SHELL
-   ========================================================= */
-
-.presentation {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-}
-
-.slide {
-    position: absolute;
-    inset: 0;
-
-    display: none;
-
-    padding:
-        clamp(30px, 4vw, 70px)
-        clamp(40px, 7vw, 110px);
-
-    background:
-        linear-gradient(
-            135deg,
-            #f7fafc,
-            #edf3f7
-        );
-
-    overflow-y: auto;
-}
-
-.slide.active {
-    display: flex;
-    flex-direction: column;
-    animation: slideIn .45s ease;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* =========================================================
-   BACKGROUND GRID
-   ========================================================= */
-
-.grid-bg {
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-
-    opacity: .35;
-
-    background-image:
-        linear-gradient(
-            rgba(15, 60, 100, .04) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(15, 60, 100, .04) 1px,
-            transparent 1px
-        );
-
-    background-size: 40px 40px;
-}
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
-.slide-header {
-    position: relative;
-    z-index: 2;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 35px;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.brand-icon {
-    width: 42px;
-    height: 42px;
-
-    border-radius: 12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--navy),
-            var(--blue)
-        );
-
-    color: white;
-
-    display: grid;
-    place-items: center;
-
-    font-weight: 800;
-}
-
-.brand-text strong {
-    display: block;
-    color: var(--navy);
-    letter-spacing: .5px;
-}
-
-.brand-text span {
-    font-size: 12px;
-    color: var(--gray-500);
-}
-
-.ps-badge {
-    border: 1px solid var(--gray-300);
-    background: white;
-
-    padding: 10px 16px;
-
-    border-radius: 999px;
-
-    font-size: 12px;
-    font-weight: 700;
-
-    color: var(--navy);
-}
-
-/* =========================================================
-   TYPOGRAPHY
-   ========================================================= */
-
-.eyebrow {
-    color: var(--saffron);
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 12px;
-}
-
-h1 {
-    color: var(--navy);
-
-    font-size:
-        clamp(38px, 5vw, 72px);
-
-    line-height: 1.05;
-
-    letter-spacing: -2px;
-
-    max-width: 1100px;
-}
-
-h2 {
-    color: var(--navy);
-
-    font-size:
-        clamp(30px, 3.4vw, 52px);
-
-    line-height: 1.12;
-
-    letter-spacing: -1.2px;
-}
-
-h3 {
-    color: var(--navy);
-
-    font-size: 20px;
-
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    margin-top: 20px;
-
-    max-width: 900px;
-
-    color: var(--gray-700);
-
-    font-size:
-        clamp(17px, 1.5vw, 23px);
-
-    line-height: 1.6;
-}
-
-.highlight {
-    color: var(--blue);
-}
-
-/* =========================================================
-   LAYOUTS
-   ========================================================= */
-
-.two-col {
-    position: relative;
-    z-index: 2;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 35px;
-
-    flex: 1;
-}
-
-.three-col {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 22px;
-}
-
-.four-col {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
-
-    gap: 20px;
-}
-
-/* =========================================================
-   CARDS
-   ========================================================= */
-
-.card {
-    background: white;
-
-    border:
-        1px solid rgba(12, 39, 66, .08);
-
-    border-radius: var(--radius);
-
-    padding: 25px;
-
-    box-shadow: var(--shadow);
-}
-
-.card p {
-    color: var(--gray-700);
-
-    line-height: 1.6;
-
-    font-size: 15px;
-}
-
-.icon {
-    width: 46px;
-    height: 46px;
-
-    border-radius: 12px;
-
-    display: grid;
-    place-items: center;
-
-    font-size: 22px;
-
-    margin-bottom: 18px;
-}
-
-.icon.blue {
-    background: var(--blue-light);
-}
-
-.icon.green {
-    background: var(--green-light);
-}
-
-.icon.orange {
-    background: var(--saffron-light);
-}
-
-.icon.red {
-    background: var(--red-light);
-}
-
-.icon.purple {
-    background: var(--purple-light);
-}
-
-/* =========================================================
-   COVER
-   ========================================================= */
-
-.cover {
-    justify-content: center;
-
-    background:
+      background:
         radial-gradient(
-            circle at 80% 20%,
-            rgba(31, 95, 153, .13),
-            transparent 40%
+          circle at 10% 10%,
+          rgba(37, 99, 166, 0.06),
+          transparent 30%
+        ),
+        #f5f8fb;
+
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* =========================================================
+       SCROLL PROGRESS
+       ========================================================= */
+
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(
+        90deg,
+        #1f5f8b,
+        #2563eb,
+        #18794e
+      );
+      z-index: 9999;
+      transition: width 0.08s linear;
+    }
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    .top-nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: min(94%, 1180px);
+
+      height: 62px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 18px;
+
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+
+      border: 1px solid rgba(219, 227, 235, 0.9);
+      border-radius: 18px;
+
+      box-shadow:
+        0 12px 35px rgba(20, 45, 70, 0.08);
+
+      z-index: 1000;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 800;
+      letter-spacing: -0.4px;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+
+      border-radius: 10px;
+
+      display: grid;
+      place-items: center;
+
+      background: var(--navy);
+      color: white;
+
+      font-size: 15px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-status {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-pill {
+      padding: 8px 12px;
+
+      border-radius: 999px;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      color: var(--success);
+      background: var(--success-bg);
+    }
+
+    /* =========================================================
+       GLOBAL
+       ========================================================= */
+
+    section {
+      position: relative;
+    }
+
+    .section {
+      padding: 130px 24px;
+    }
+
+    .container {
+      width: min(100%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 12px;
+
+      border-radius: 999px;
+
+      background: #edf4fa;
+      color: var(--gov-blue);
+
+      font-size: 12px;
+      font-weight: 800;
+
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 18px 0 14px;
+
+      font-size: clamp(34px, 5vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+
+      color: var(--navy);
+    }
+
+    .section-description {
+      max-width: 800px;
+
+      font-size: 18px;
+      line-height: 1.8;
+
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       REVEAL ANIMATION
+       ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(45px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-60px);
+
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(60px);
+
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(37, 99, 166, 0.18),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 20% 80%,
+          rgba(24, 121, 78, 0.10),
+          transparent 35%
         ),
         linear-gradient(
-            135deg,
-            #f7fafc,
-            #edf3f7
+          135deg,
+          #071522,
+          #0b1f33 55%,
+          #102a43
         );
-}
 
-.cover-content {
-    position: relative;
-    z-index: 2;
+      color: white;
+    }
 
-    max-width: 1150px;
-}
+    .hero-grid {
+      width: min(100%, var(--max-width));
+      margin: 0 auto;
 
-.hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+      padding: 120px 24px 80px;
 
-    background: white;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
 
-    border: 1px solid var(--gray-300);
+      align-items: center;
+    }
 
-    border-radius: 999px;
+    .hero-tag {
+      display: inline-flex;
 
-    padding: 12px 18px;
+      padding: 8px 14px;
 
-    font-size: 13px;
-    font-weight: 800;
+      border-radius: 999px;
 
-    color: var(--navy);
+      border: 1px solid rgba(255,255,255,0.18);
 
-    margin-bottom: 30px;
-}
+      background: rgba(255,255,255,0.07);
 
-.cover h1 {
-    font-size:
-        clamp(58px, 8vw, 120px);
-}
+      color: rgba(255,255,255,0.8);
 
-.cover-line {
-    width: 90px;
-    height: 5px;
+      font-size: 12px;
+      font-weight: 700;
 
-    margin: 28px 0;
+      letter-spacing: 0.08em;
+    }
 
-    border-radius: 20px;
+    .hero-title {
+      margin: 24px 0;
 
-    background:
+      font-size: clamp(64px, 10vw, 130px);
+      line-height: 0.85;
+
+      letter-spacing: -0.08em;
+
+      animation:
+        heroEnter 1.3s cubic-bezier(.16, 1, .3, 1)
+        forwards;
+    }
+
+    .hero-title span {
+      display: block;
+      color: #6eb6e7;
+    }
+
+    .hero-subtitle {
+      max-width: 680px;
+
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.6;
+
+      color: rgba(255,255,255,0.72);
+    }
+
+    .hero-meta {
+      margin-top: 32px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .meta-card {
+      padding: 12px 16px;
+
+      border-radius: 12px;
+
+      background: rgba(255,255,255,0.08);
+
+      border: 1px solid rgba(255,255,255,0.1);
+
+      color: rgba(255,255,255,0.85);
+
+      font-size: 13px;
+    }
+
+    .hero-visual {
+      position: relative;
+
+      min-height: 520px;
+
+      display: grid;
+      place-items: center;
+    }
+
+    .orb {
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(255,255,255,0.14);
+
+      animation:
+        spin 22s linear infinite;
+    }
+
+    .orb::before,
+    .orb::after {
+      content: "";
+
+      position: absolute;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(110,182,231,0.25);
+    }
+
+    .orb::before {
+      inset: 45px;
+    }
+
+    .orb::after {
+      inset: 100px;
+    }
+
+    .hero-dashboard {
+      position: relative;
+
+      width: min(100%, 450px);
+
+      padding: 24px;
+
+      border-radius: 24px;
+
+      background:
+        rgba(255,255,255,0.95);
+
+      color: var(--text);
+
+      box-shadow:
+        0 40px 90px rgba(0,0,0,0.3);
+
+      transform:
+        rotateY(-8deg)
+        rotateX(4deg);
+
+      animation:
+        float 6s ease-in-out infinite;
+    }
+
+    .dashboard-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-bottom: 16px;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .dashboard-title {
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .live-dot {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      color: var(--success);
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .live-dot::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--success);
+
+      animation:
+        pulse 1.6s infinite;
+    }
+
+    .dashboard-map {
+      height: 230px;
+
+      margin: 18px 0;
+
+      border-radius: 16px;
+
+      overflow: hidden;
+
+      background:
         linear-gradient(
-            90deg,
-            var(--saffron),
-            var(--green)
-        );
-}
-
-.cover-meta {
-    margin-top: 45px;
-
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 15px;
-}
-
-.meta-chip {
-    background: white;
-
-    padding: 14px 20px;
-
-    border-radius: 12px;
-
-    border: 1px solid var(--gray-300);
-
-    font-size: 13px;
-
-    color: var(--gray-700);
-}
-
-.meta-chip strong {
-    color: var(--navy);
-}
-
-/* =========================================================
-   PROBLEM VISUAL
-   ========================================================= */
-
-.fragment-grid {
-    margin-top: 35px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 18px;
-}
-
-.fragment {
-    background: white;
-
-    border: 1px solid var(--gray-300);
-
-    border-radius: 14px;
-
-    padding: 20px;
-
-    position: relative;
-}
-
-.fragment::after {
-    content: "×";
-
-    position: absolute;
-
-    top: 10px;
-    right: 15px;
-
-    color: var(--red);
-
-    font-size: 22px;
-    font-weight: 800;
-}
-
-.fragment span {
-    font-size: 30px;
-}
-
-.fragment strong {
-    display: block;
-
-    margin-top: 10px;
-
-    color: var(--navy);
-}
-
-/* =========================================================
-   FLOW
-   ========================================================= */
-
-.flow {
-    display: flex;
-    align-items: stretch;
-
-    gap: 10px;
-
-    margin-top: 30px;
-
-    flex-wrap: wrap;
-}
-
-.flow-step {
-    flex: 1;
-
-    min-width: 140px;
-
-    background: white;
-
-    border: 1px solid var(--gray-300);
-
-    border-radius: 15px;
-
-    padding: 20px;
-
-    text-align: center;
-
-    position: relative;
-}
-
-.flow-step .num {
-    color: var(--blue);
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    letter-spacing: 1px;
-}
-
-.flow-step strong {
-    display: block;
-
-    margin-top: 10px;
-
-    color: var(--navy);
-}
-
-.flow-arrow {
-    align-self: center;
-
-    color: var(--blue);
-
-    font-size: 25px;
-
-    font-weight: 700;
-}
-
-/* =========================================================
-   CENTRAL SYSTEM
-   ========================================================= */
-
-.system-visual {
-    position: relative;
-
-    min-height: 500px;
-
-    display: grid;
-
-    place-items: center;
-}
-
-.core-node {
-    width: 250px;
-    height: 250px;
-
-    border-radius: 50%;
-
-    background:
+          45deg,
+          rgba(37,99,166,0.06) 25%,
+          transparent 25%
+        ),
         linear-gradient(
-            135deg,
-            var(--navy),
-            var(--blue)
-        );
+          -45deg,
+          rgba(37,99,166,0.06) 25%,
+          transparent 25%
+        ),
+        #eef4f8;
 
-    color: white;
+      background-size:
+        28px 28px;
 
-    display: flex;
+      position: relative;
+    }
 
-    flex-direction: column;
+    .road {
+      position: absolute;
 
-    justify-content: center;
-    align-items: center;
+      left: 5%;
+      top: 45%;
 
-    text-align: center;
+      width: 90%;
+      height: 24px;
 
-    box-shadow:
-        0 25px 70px rgba(11,39,66,.22);
-}
+      border-radius: 999px;
 
-.core-node h2 {
-    color: white;
+      background:
+        var(--navy);
 
-    font-size: 34px;
-}
+      transform:
+        rotate(-9deg);
+    }
 
-.core-node span {
-    opacity: .8;
+    .parcel {
+      position: absolute;
 
-    margin-top: 8px;
+      width: 70px;
+      height: 55px;
 
-    font-size: 13px;
-}
+      border:
+        2px solid rgba(31,95,139,0.7);
 
-.orbit-node {
-    position: absolute;
+      background:
+        rgba(37,99,166,0.14);
 
-    width: 180px;
+      border-radius: 6px;
 
-    padding: 20px;
+      animation:
+        parcelPulse 3s infinite;
+    }
 
-    background: white;
+    .parcel.p1 {
+      left: 16%;
+      top: 24%;
+    }
 
-    border: 1px solid var(--gray-300);
+    .parcel.p2 {
+      left: 42%;
+      top: 50%;
+    }
 
-    border-radius: 15px;
+    .parcel.p3 {
+      right: 14%;
+      top: 26%;
+      border-color: var(--danger);
+      background: rgba(180,35,24,0.12);
+    }
 
-    box-shadow: var(--shadow);
+    .parcel-label {
+      position: absolute;
 
-    text-align: center;
-}
+      right: 8%;
+      top: 14%;
 
-.orbit-node.top {
-    top: 20px;
-}
+      padding: 7px 10px;
 
-.orbit-node.bottom {
-    bottom: 20px;
-}
+      border-radius: 8px;
 
-.orbit-node.left {
-    left: 4%;
-}
+      background: var(--danger);
 
-.orbit-node.right {
-    right: 4%;
-}
+      color: white;
 
-.orbit-node strong {
-    display: block;
+      font-size: 10px;
+      font-weight: 800;
 
-    color: var(--navy);
-}
+      animation:
+        floatSmall 2.8s ease-in-out infinite;
+    }
 
-.orbit-node span {
-    display: block;
+    .dashboard-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
 
-    margin-top: 8px;
+    .dash-stat {
+      padding: 12px;
 
-    color: var(--gray-500);
+      border-radius: 12px;
 
-    font-size: 12px;
-}
+      background: #f6f9fc;
 
-/* =========================================================
-   ARCHITECTURE
-   ========================================================= */
+      border:
+        1px solid var(--border);
+    }
 
-.architecture {
-    margin-top: 25px;
+    .dash-stat b {
+      display: block;
 
-    display: flex;
+      font-size: 18px;
 
-    flex-direction: column;
+      color: var(--navy);
+    }
 
-    gap: 18px;
-}
+    .dash-stat span {
+      font-size: 10px;
 
-.arch-layer {
-    background: white;
+      color: var(--muted);
+    }
 
-    border-radius: 16px;
+    @keyframes heroEnter {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+        letter-spacing: 20px;
+      }
 
-    border: 1px solid var(--gray-300);
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: -0.08em;
+      }
+    }
 
-    padding: 18px 22px;
+    @keyframes spin {
+      from { transform: rotate(0); }
+      to { transform: rotate(360deg); }
+    }
 
-    display: flex;
+    @keyframes float {
+      0%, 100% {
+        transform:
+          rotateY(-8deg)
+          rotateX(4deg)
+          translateY(0);
+      }
 
-    gap: 20px;
+      50% {
+        transform:
+          rotateY(-8deg)
+          rotateX(4deg)
+          translateY(-16px);
+      }
+    }
 
-    align-items: center;
-}
+    @keyframes floatSmall {
+      0%,100% {
+        transform: translateY(0);
+      }
 
-.arch-label {
-    width: 180px;
+      50% {
+        transform: translateY(-8px);
+      }
+    }
 
-    font-weight: 800;
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(24,121,78,0.4);
+      }
 
-    color: var(--navy);
-}
+      70% {
+        box-shadow: 0 0 0 8px rgba(24,121,78,0);
+      }
 
-.arch-items {
-    display: flex;
+      100% {
+        box-shadow: 0 0 0 0 rgba(24,121,78,0);
+      }
+    }
 
-    gap: 10px;
+    @keyframes parcelPulse {
+      0%,100% {
+        transform: scale(1);
+      }
 
-    flex-wrap: wrap;
-}
+      50% {
+        transform: scale(1.08);
+      }
+    }
 
-.arch-item {
-    background: var(--gray-100);
+    /* =========================================================
+       PROBLEM
+       ========================================================= */
 
-    padding: 10px 14px;
+    .problem-grid {
+      margin-top: 60px;
 
-    border-radius: 9px;
+      display: grid;
+      grid-template-columns:
+        repeat(4, 1fr);
 
-    font-size: 13px;
+      gap: 18px;
+    }
 
-    color: var(--gray-700);
-}
+    .problem-card {
+      padding: 26px;
 
-/* =========================================================
-   DIGITAL TWIN
-   ========================================================= */
+      border-radius: 18px;
 
-.twin-card {
-    background: white;
+      background: white;
 
-    border-radius: 20px;
+      border:
+        1px solid var(--border);
 
-    border: 1px solid var(--gray-300);
+      box-shadow:
+        0 12px 30px rgba(15,35,55,0.04);
 
-    box-shadow: var(--shadow);
+      transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+    }
 
-    overflow: hidden;
-}
+    .problem-card:hover {
+      transform: translateY(-8px);
 
-.twin-header {
-    background:
+      box-shadow: var(--shadow);
+    }
+
+    .problem-number {
+      color: var(--gov-blue);
+
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .problem-card h3 {
+      margin: 18px 0 10px;
+
+      color: var(--navy);
+    }
+
+    .problem-card p {
+      margin: 0;
+
+      line-height: 1.7;
+
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       SOLUTION
+       ========================================================= */
+
+    .solution-flow {
+      margin-top: 70px;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .flow-node {
+      width: 190px;
+
+      min-height: 160px;
+
+      padding: 20px;
+
+      border-radius: 18px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      background: white;
+
+      border:
+        1px solid var(--border);
+
+      box-shadow:
+        0 12px 30px rgba(15,35,55,0.05);
+
+      text-align: center;
+    }
+
+    .flow-node strong {
+      font-size: 16px;
+      color: var(--navy);
+    }
+
+    .flow-node span {
+      margin-top: 8px;
+
+      font-size: 12px;
+      line-height: 1.6;
+
+      color: var(--muted);
+    }
+
+    .flow-arrow {
+      display: flex;
+      align-items: center;
+
+      color: var(--gov-blue);
+
+      font-size: 28px;
+      font-weight: 300;
+    }
+
+    /* =========================================================
+       STORY
+       ========================================================= */
+
+    .story-section {
+      background:
         linear-gradient(
-            135deg,
-            var(--navy),
-            var(--blue)
+          180deg,
+          #f8fbfd,
+          #eef4f8
         );
+    }
 
-    color: white;
+    .story-grid {
+      margin-top: 60px;
 
-    padding: 25px;
-}
+      display: grid;
+      grid-template-columns:
+        0.9fr 1.1fr;
 
-.twin-grid {
-    padding: 22px;
+      gap: 60px;
+      align-items: center;
+    }
 
-    display: grid;
+    .story-timeline {
+      border-left:
+        2px solid #c9d9e6;
 
-    grid-template-columns:
+      padding-left: 30px;
+    }
+
+    .story-step {
+      position: relative;
+
+      padding-bottom: 35px;
+
+      opacity: 0.35;
+
+      transition:
+        opacity 0.4s,
+        transform 0.4s;
+    }
+
+    .story-step.active {
+      opacity: 1;
+
+      transform:
+        translateX(12px);
+    }
+
+    .story-step::before {
+      content: "";
+
+      position: absolute;
+
+      left: -38px;
+      top: 4px;
+
+      width: 14px;
+      height: 14px;
+
+      border-radius: 50%;
+
+      background: #b8c8d5;
+    }
+
+    .story-step.active::before {
+      background: var(--gov-blue);
+
+      box-shadow:
+        0 0 0 7px rgba(37,99,166,0.12);
+    }
+
+    .story-step b {
+      display: block;
+
+      font-size: 18px;
+      color: var(--navy);
+    }
+
+    .story-step span {
+      display: block;
+
+      margin-top: 7px;
+
+      font-size: 14px;
+      line-height: 1.7;
+
+      color: var(--muted);
+    }
+
+    .parcel-twin {
+      padding: 30px;
+
+      border-radius: 26px;
+
+      background: white;
+
+      border:
+        1px solid var(--border);
+
+      box-shadow: var(--shadow);
+    }
+
+    .twin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-bottom: 22px;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .twin-header h3 {
+      margin: 0;
+
+      color: var(--navy);
+      font-size: 26px;
+    }
+
+    .risk-high {
+      padding: 7px 12px;
+
+      border-radius: 999px;
+
+      background: var(--danger-bg);
+      color: var(--danger);
+
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .twin-grid {
+      display: grid;
+      grid-template-columns:
         repeat(2, 1fr);
 
-    gap: 14px;
-}
+      gap: 14px;
 
-.twin-stat {
-    background: var(--gray-100);
+      margin-top: 22px;
+    }
 
-    padding: 14px;
+    .twin-item {
+      padding: 16px;
 
-    border-radius: 10px;
-}
+      border-radius: 12px;
 
-.twin-stat span {
-    display: block;
+      background: #f8fafc;
 
-    font-size: 11px;
+      border:
+        1px solid var(--border);
+    }
 
-    color: var(--gray-500);
+    .twin-item small {
+      display: block;
 
-    text-transform: uppercase;
-}
+      color: var(--muted);
+      font-size: 10px;
 
-.twin-stat strong {
-    display: block;
+      text-transform: uppercase;
+    }
 
-    margin-top: 6px;
+    .twin-item b {
+      display: block;
 
-    color: var(--navy);
+      margin-top: 7px;
 
-    font-size: 14px;
-}
+      color: var(--navy);
+    }
 
-/* =========================================================
-   AI
-   ========================================================= */
+    /* =========================================================
+       STICKY ARCHITECTURE
+       ========================================================= */
 
-.ai-engine {
-    margin-top: 30px;
+    .architecture-wrapper {
+      min-height: 500vh;
 
-    display: grid;
+      display: grid;
+      grid-template-columns:
+        0.8fr 1.2fr;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+      background: var(--navy);
+    }
 
-    gap: 20px;
-}
+    .architecture-left {
+      position: sticky;
+      top: 0;
 
-.ai-column {
-    background: white;
+      height: 100vh;
 
-    border: 1px solid var(--gray-300);
+      padding: 110px 8vw;
 
-    border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-    padding: 25px;
-}
+      color: white;
+    }
 
-.ai-column ul {
-    list-style: none;
+    .architecture-left .eyebrow {
+      width: fit-content;
 
-    margin-top: 15px;
-}
+      color: #7dc0ed;
 
-.ai-column li {
-    padding: 10px 0;
+      background:
+        rgba(110,182,231,0.08);
 
-    border-bottom:
-        1px solid var(--gray-200);
+      border:
+        1px solid rgba(110,182,231,0.16);
+    }
 
-    font-size: 14px;
+    .architecture-left h2 {
+      margin: 20px 0;
 
-    color: var(--gray-700);
-}
+      font-size: clamp(45px, 5vw, 78px);
 
-/* =========================================================
-   TIMELINE
-   ========================================================= */
+      line-height: 0.95;
 
-.timeline {
-    margin-top: 35px;
+      letter-spacing: -0.06em;
+    }
 
-    display: grid;
+    .architecture-left p {
+      max-width: 430px;
 
-    grid-template-columns:
+      color: rgba(255,255,255,0.6);
+
+      line-height: 1.8;
+    }
+
+    .architecture-right {
+      padding:
+        20vh 8vw;
+    }
+
+    .architecture-step {
+      min-height: 80vh;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      opacity: 0.18;
+
+      transform:
+        translateX(0);
+
+      transition:
+        0.5s ease;
+    }
+
+    .architecture-step.active {
+      opacity: 1;
+
+      transform:
+        translateX(24px);
+    }
+
+    .architecture-index {
+      color: #7dc0ed;
+
+      font-size: 13px;
+
+      font-weight: 900;
+
+      letter-spacing: 0.1em;
+    }
+
+    .architecture-step h3 {
+      margin: 16px 0;
+
+      font-size: clamp(36px, 4vw, 62px);
+
+      color: white;
+
+      letter-spacing: -0.05em;
+    }
+
+    .architecture-step p {
+      max-width: 600px;
+
+      font-size: 17px;
+
+      line-height: 1.8;
+
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* =========================================================
+       AI SECTION
+       ========================================================= */
+
+    .ai-monitor {
+      margin-top: 60px;
+
+      padding: 34px;
+
+      border-radius: 26px;
+
+      background: var(--navy);
+
+      color: white;
+
+      box-shadow: var(--shadow);
+    }
+
+    .parcel-list {
+      margin-top: 28px;
+
+      display: grid;
+
+      gap: 10px;
+    }
+
+    .parcel-row {
+      display: grid;
+      grid-template-columns:
+        1fr auto auto;
+
+      gap: 20px;
+
+      padding: 15px 18px;
+
+      border-radius: 12px;
+
+      background:
+        rgba(255,255,255,0.05);
+
+      border:
+        1px solid rgba(255,255,255,0.07);
+
+      font-size: 14px;
+    }
+
+    .parcel-row.danger {
+      background:
+        rgba(180,35,24,0.18);
+
+      border-color:
+        rgba(255,255,255,0.12);
+
+      animation:
+        riskGlow 2.5s infinite;
+    }
+
+    @keyframes riskGlow {
+      0%,100% {
+        box-shadow:
+          0 0 0 rgba(180,35,24,0);
+      }
+
+      50% {
+        box-shadow:
+          0 0 30px rgba(180,35,24,0.22);
+      }
+    }
+
+    .ai-result {
+      margin-top: 30px;
+
+      display: grid;
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 18px;
+    }
+
+    .ai-card {
+      padding: 24px;
+
+      border-radius: 18px;
+
+      background:
+        rgba(255,255,255,0.06);
+
+      border:
+        1px solid rgba(255,255,255,0.09);
+    }
+
+    .ai-card small {
+      color:
+        rgba(255,255,255,0.55);
+
+      text-transform: uppercase;
+    }
+
+    .ai-card h3 {
+      margin: 12px 0;
+
+      font-size: 26px;
+    }
+
+    /* =========================================================
+       AUTOMATION
+       ========================================================= */
+
+    .automation-flow {
+      margin-top: 70px;
+
+      display: grid;
+      grid-template-columns:
         repeat(5, 1fr);
 
-    gap: 15px;
-}
+      gap: 18px;
+    }
 
-.timeline-step {
-    background: white;
+    .automation-card {
+      padding: 25px;
 
-    padding: 18px;
+      border-radius: 20px;
 
-    border-radius: 14px;
+      background: white;
 
-    border-top:
-        4px solid var(--blue);
+      border:
+        1px solid var(--border);
 
-    box-shadow: var(--shadow);
-}
+      min-height: 230px;
 
-.timeline-step span {
-    font-size: 11px;
+      transition:
+        transform 0.3s;
+    }
 
-    font-weight: 800;
+    .automation-card:hover {
+      transform:
+        translateY(-8px);
+    }
 
-    color: var(--blue);
-}
+    .automation-card .number {
+      color: var(--gov-blue);
 
-.timeline-step strong {
-    display: block;
+      font-weight: 900;
+      font-size: 12px;
+    }
 
-    margin-top: 10px;
+    .automation-card h3 {
+      color: var(--navy);
 
-    color: var(--navy);
-}
+      margin: 20px 0 12px;
+    }
 
-/* =========================================================
-   STATUS
-   ========================================================= */
+    .automation-card p {
+      color: var(--muted);
 
-.status {
-    display: inline-flex;
+      font-size: 13px;
+      line-height: 1.7;
+    }
 
-    padding: 6px 10px;
+    /* =========================================================
+       NATIONAL
+       ========================================================= */
 
-    border-radius: 999px;
+    .national {
+      min-height: 100vh;
 
-    font-size: 11px;
+      display: flex;
+      align-items: center;
 
-    font-weight: 800;
-}
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(37,99,166,0.13),
+          transparent 45%
+        ),
+        var(--navy);
 
-.status.green {
-    background: var(--green-light);
-    color: var(--green);
-}
+      color: white;
+    }
 
-.status.orange {
-    background: var(--saffron-light);
-    color: var(--saffron);
-}
+    .national-center {
+      width: min(100%, 1000px);
 
-.status.red {
-    background: var(--red-light);
-    color: var(--red);
-}
+      margin: 0 auto;
 
-.status.blue {
-    background: var(--blue-light);
-    color: var(--blue);
-}
+      padding: 120px 24px;
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
+      text-align: center;
+    }
 
-.slide-footer {
-    position: relative;
+    .national-center h2 {
+      font-size: clamp(50px, 8vw, 100px);
 
-    z-index: 2;
+      margin: 20px 0;
 
-    margin-top: auto;
+      letter-spacing: -0.07em;
+    }
 
-    padding-top: 25px;
+    .national-center p {
+      max-width: 720px;
 
-    display: flex;
+      margin: 0 auto;
 
-    justify-content: space-between;
+      color:
+        rgba(255,255,255,0.65);
 
-    color: var(--gray-500);
+      line-height: 1.8;
 
-    font-size: 12px;
-}
+      font-size: 18px;
+    }
 
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+    .command-flow {
+      margin: 70px auto;
 
-.controls {
-    position: fixed;
+      max-width: 500px;
 
-    bottom: 22px;
-    right: 25px;
+      display: grid;
 
-    z-index: 100;
+      gap: 12px;
+    }
 
-    display: flex;
+    .command-node {
+      padding: 18px 24px;
 
-    gap: 10px;
-}
+      border-radius: 16px;
 
-.controls button {
-    width: 48px;
-    height: 48px;
+      background:
+        rgba(255,255,255,0.08);
 
-    border-radius: 50%;
+      border:
+        1px solid rgba(255,255,255,0.12);
 
-    border: none;
+      font-weight: 800;
+    }
 
-    background: var(--navy);
+    .command-arrow {
+      color: #7dc0ed;
 
-    color: white;
+      font-size: 22px;
+    }
 
-    font-size: 20px;
+    .final-line {
+      margin-top: 50px;
 
-    cursor: pointer;
+      font-size: clamp(24px, 4vw, 50px);
 
-    box-shadow: var(--shadow);
-}
+      font-weight: 800;
 
-.controls button:hover {
-    background: var(--blue);
-}
+      color: #7dc0ed;
+    }
 
-.slide-number {
-    position: fixed;
+    /* =========================================================
+       FOOTER
+       ========================================================= */
 
-    bottom: 35px;
-    left: 30px;
+    .footer {
+      padding: 40px 24px;
 
-    z-index: 100;
+      background: #06121e;
 
-    font-size: 12px;
+      color:
+        rgba(255,255,255,0.5);
 
-    color: var(--gray-500);
-}
+      text-align: center;
 
-.progress {
-    position: fixed;
+      font-size: 13px;
+    }
 
-    top: 0;
-    left: 0;
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
 
-    height: 4px;
+    @media (max-width: 900px) {
 
-    background: var(--saffron);
-
-    z-index: 200;
-
-    transition: width .3s ease;
-}
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-    .two-col,
-    .three-col,
-    .four-col,
-    .ai-engine {
+      .hero-grid,
+      .story-grid,
+      .architecture-wrapper {
         grid-template-columns: 1fr;
-    }
+      }
 
-    .timeline {
-        grid-template-columns: repeat(2, 1fr);
-    }
+      .hero {
+        padding-top: 70px;
+      }
 
-    .fragment-grid {
-        grid-template-columns: 1fr;
-    }
+      .problem-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
 
-    .orbit-node {
+      .architecture-wrapper {
+        min-height: auto;
+      }
+
+      .architecture-left {
         position: relative;
-        inset: auto !important;
-        margin: 10px;
+        height: auto;
+      }
+
+      .architecture-right {
+        padding: 50px 8vw;
+      }
+
+      .architecture-step {
+        min-height: 60vh;
+      }
+
+      .automation-flow {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
     }
 
-    .system-visual {
-        display: flex;
-        flex-direction: column;
+    @media (max-width: 600px) {
+
+      .section {
+        padding: 90px 18px;
+      }
+
+      .top-nav {
+        top: 10px;
+      }
+
+      .nav-status {
+        display: none;
+      }
+
+      .hero-grid {
+        padding:
+          110px 20px 60px;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .orb {
+        width: 320px;
+        height: 320px;
+      }
+
+      .problem-grid,
+      .automation-flow,
+      .twin-grid,
+      .ai-result {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+
+      .story-timeline {
+        padding-left: 22px;
+      }
+
+      .architecture-left {
+        padding:
+          110px 24px 70px;
+      }
+
+      .parcel-row {
+        grid-template-columns:
+          1fr auto;
+      }
+
     }
 
-    .arch-layer {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-}
-</style>
+  </style>
 </head>
 
 <body>
 
-<div class="presentation">
+  <div class="scroll-progress" id="scrollProgress"></div>
 
-<div class="progress" id="progress"></div>
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
 
-<!-- =====================================================
-SLIDE 1
-===================================================== -->
+  <nav class="top-nav">
 
-<section class="slide cover active">
+    <a href="#hero" class="brand">
+      <div class="brand-mark">BC</div>
+      <span>BHUMI-CHAIN</span>
+    </a>
 
-<div class="grid-bg"></div>
+    <div class="nav-right">
+      <span class="nav-status">
+        SIH 2026 • PS 26016
+      </span>
 
-<div class="cover-content">
+      <span class="nav-pill">
+        Prototype Ready
+      </span>
+    </div>
 
-<div class="hero-tag">
-🏛 SMART INDIA HACKATHON • SOFTWARE CATEGORY
-</div>
+  </nav>
 
-<div class="eyebrow">
-PROBLEM STATEMENT ID • 26016
-</div>
 
-<h1>
-BHUMI-CHAIN
-</h1>
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
 
-<div class="cover-line"></div>
+  <section class="hero" id="hero">
 
-<h2 style="margin-top:10px">
-Intelligent National Land Acquisition
-Digital Twin & Decision Support Platform
-</h2>
+    <div class="hero-grid">
 
-<p class="subtitle">
+      <div>
 
-A unified digital platform that connects every land acquisition project,
-every parcel, every workflow stage and every critical decision into one
-real-time national intelligence system.
+        <div class="hero-tag">
+          SMART INDIA HACKATHON • PS 26016
+        </div>
 
-</p>
+        <h1 class="hero-title">
+          BHUMI
+          <span>CHAIN</span>
+        </h1>
 
-<div class="cover-meta">
+        <p class="hero-subtitle">
+          Intelligent National Land Acquisition
+          Digital Twin & Decision Support Platform
+          for real-time monitoring, accountability
+          and data-driven governance.
+        </p>
 
-<div class="meta-chip">
-<strong>Organization</strong><br>
-Ministry of Rural Development
-</div>
+        <div class="hero-meta">
 
-<div class="meta-chip">
-<strong>Department</strong><br>
-Department of Land Resources
-</div>
+          <div class="meta-card">
+            🇮🇳 National Scale
+          </div>
 
-<div class="meta-chip">
-<strong>Category</strong><br>
-Software
-</div>
+          <div class="meta-card">
+            🗺 GIS + 3D Digital Twin
+          </div>
 
-<div class="meta-chip">
-<strong>Team</strong><br>
-[YOUR TEAM NAME]
-</div>
+          <div class="meta-card">
+            🤖 AI Decision Support
+          </div>
 
-</div>
+          <div class="meta-card">
+            ⚙ Automated Workflow
+          </div>
 
-</div>
+        </div>
 
-</section>
+      </div>
 
 
-<!-- =====================================================
-SLIDE 2
-===================================================== -->
+      <div class="hero-visual">
 
-<section class="slide">
+        <div class="orb"></div>
 
-<div class="grid-bg"></div>
+        <div class="hero-dashboard">
 
-<div class="slide-header">
+          <div class="dashboard-top">
 
-<div class="brand">
-<div class="brand-icon">BC</div>
+            <div class="dashboard-title">
+              National Project Monitor
+            </div>
 
-<div class="brand-text">
-<strong>BHUMI-CHAIN</strong>
-<span>National Land Intelligence Platform</span>
-</div>
-</div>
+            <div class="live-dot">
+              LIVE
+            </div>
 
-<div class="ps-badge">
-PROBLEM • FRAGMENTED LAND ACQUISITION
-</div>
+          </div>
 
-</div>
 
-<div class="eyebrow">THE CHALLENGE</div>
+          <div class="dashboard-map">
 
-<h2>
-India's Land Acquisition Process Is
-<span class="highlight">Fragmented and Reactive.</span>
-</h2>
+            <div class="road"></div>
 
-<p class="subtitle">
+            <div class="parcel p1"></div>
+            <div class="parcel p2"></div>
+            <div class="parcel p3"></div>
 
-Critical information is distributed across authorities, departments,
-documents and disconnected systems. Decision-makers often see problems
-only after delays have already occurred.
+            <div class="parcel-label">
+              DEMO-123 • HIGH RISK
+            </div>
 
-</p>
+          </div>
 
-<div class="fragment-grid">
 
-<div class="fragment">
-<span>📜</span>
-<strong>Land Records</strong>
-</div>
+          <div class="dashboard-stats">
 
-<div class="fragment">
-<span>🏢</span>
-<strong>District Authorities</strong>
-</div>
+            <div class="dash-stat">
+              <b>34</b>
+              <span>Parcels</span>
+            </div>
 
-<div class="fragment">
-<span>🛣</span>
-<strong>Project Agencies</strong>
-</div>
+            <div class="dash-stat">
+              <b>68</b>
+              <span>Risk Score</span>
+            </div>
 
-<div class="fragment">
-<span>💰</span>
-<strong>Compensation Systems</strong>
-</div>
+            <div class="dash-stat">
+              <b>14</b>
+              <span>Actions</span>
+            </div>
 
-<div class="fragment">
-<span>👨‍👩‍👧</span>
-<strong>R&R Records</strong>
-</div>
+          </div>
 
-<div class="fragment">
-<span>📊</span>
-<strong>State / Central Monitoring</strong>
-</div>
+        </div>
 
-</div>
+      </div>
 
-<div class="slide-footer">
-<span>BHUMI-CHAIN • SIH 26016</span>
-<span>Fragmentation → Delays → Low Visibility</span>
-</div>
+    </div>
 
-</section>
+  </section>
 
 
-<!-- =====================================================
-SLIDE 3
-===================================================== -->
+  <!-- =====================================================
+       PROBLEM
+       ===================================================== -->
 
-<section class="slide">
+  <section class="section">
 
-<div class="grid-bg"></div>
+    <div class="container">
 
-<div class="slide-header">
+      <div class="eyebrow reveal">
+        01 • The Problem
+      </div>
 
-<div class="brand">
-<div class="brand-icon">03</div>
-<div class="brand-text">
-<strong>CORE INSIGHT</strong>
-<span>The real bottleneck</span>
-</div>
-</div>
+      <h2 class="section-title reveal">
+        Land acquisition data is fragmented.
+      </h2>
 
-</div>
+      <p class="section-description reveal">
+        Critical infrastructure projects involve multiple
+        ministries, states, districts, authorities and
+        landowners. Information is often distributed
+        across disconnected systems, documents and
+        manual workflows.
+      </p>
 
-<div class="eyebrow">
-THE FUNDAMENTAL PROBLEM
-</div>
 
-<h2>
-A Project May Have 1,000 Parcels.
-<span class="highlight">One Parcel Can Delay Everything.</span>
-</h2>
+      <div class="problem-grid">
 
-<div class="flow">
+        <div class="problem-card reveal">
+          <div class="problem-number">01</div>
+          <h3>Fragmented Systems</h3>
+          <p>
+            Project, parcel, compensation and possession
+            information exists across multiple agencies.
+          </p>
+        </div>
 
-<div class="flow-step">
-<div class="num">NATIONAL</div>
-<strong>Central Monitoring</strong>
-</div>
 
-<div class="flow-arrow">→</div>
+        <div class="problem-card reveal">
+          <div class="problem-number">02</div>
+          <h3>Limited Visibility</h3>
+          <p>
+            Decision makers cannot easily see the live
+            status of every project and affected parcel.
+          </p>
+        </div>
 
-<div class="flow-step">
-<div class="num">STATE</div>
-<strong>State Progress</strong>
-</div>
 
-<div class="flow-arrow">→</div>
+        <div class="problem-card reveal">
+          <div class="problem-number">03</div>
+          <h3>Delayed Resolution</h3>
+          <p>
+            Issues can remain unresolved because
+            responsibility and escalation are unclear.
+          </p>
+        </div>
 
-<div class="flow-step">
-<div class="num">DISTRICT</div>
-<strong>Field Authority</strong>
-</div>
 
-<div class="flow-arrow">→</div>
+        <div class="problem-card reveal">
+          <div class="problem-number">04</div>
+          <h3>Reactive Decisions</h3>
+          <p>
+            Risks, delays and anomalies are often noticed
+            after they already impact the project timeline.
+          </p>
+        </div>
 
-<div class="flow-step">
-<div class="num">PROJECT</div>
-<strong>Infrastructure Project</strong>
-</div>
+      </div>
 
-<div class="flow-arrow">→</div>
+    </div>
 
-<div class="flow-step">
-<div class="num">PARCEL</div>
-<strong>Actual Bottleneck</strong>
-</div>
+  </section>
 
-</div>
 
-<div class="three-col" style="margin-top:45px">
+  <!-- =====================================================
+       SOLUTION
+       ===================================================== -->
 
-<div class="card">
-<div class="icon red">⚠</div>
-<h3>Current Visibility</h3>
-<p>
-Project-level progress may look healthy while critical parcels remain
-disputed, unpaid or pending possession.
-</p>
-</div>
+  <section class="section story-section">
 
-<div class="card">
-<div class="icon orange">🔍</div>
-<h3>Hidden Bottlenecks</h3>
-<p>
-Officials must manually investigate thousands of records to identify
-what is blocking progress.
-</p>
-</div>
+    <div class="container">
 
-<div class="card">
-<div class="icon green">🎯</div>
-<h3>BHUMI-CHAIN Insight</h3>
-<p>
-Every affected parcel should become a trackable digital entity with
-its own lifecycle and intelligence.
-</p>
-</div>
+      <div class="eyebrow reveal">
+        02 • The Solution
+      </div>
 
-</div>
+      <h2 class="section-title reveal">
+        One national platform.<br>
+        One source of truth.
+      </h2>
 
-</section>
+      <p class="section-description reveal">
+        BHUMI-CHAIN connects spatial information,
+        parcel-level digital twins, acquisition workflows,
+        compensation, possession, AI intelligence and
+        decision support into one unified platform.
+      </p>
 
 
-<!-- =====================================================
-SLIDE 4
-===================================================== -->
+      <div class="solution-flow reveal">
 
-<section class="slide">
+        <div class="flow-node">
+          <strong>Project</strong>
+          <span>
+            Create or import government project data
+          </span>
+        </div>
 
-<div class="grid-bg"></div>
+        <div class="flow-arrow">→</div>
 
-<div class="slide-header">
+        <div class="flow-node">
+          <strong>GIS</strong>
+          <span>
+            Identify land boundaries and affected parcels
+          </span>
+        </div>
 
-<div class="brand">
-<div class="brand-icon">04</div>
-<div class="brand-text">
-<strong>THE SOLUTION</strong>
-<span>BHUMI-CHAIN</span>
-</div>
-</div>
+        <div class="flow-arrow">→</div>
 
-</div>
+        <div class="flow-node">
+          <strong>Digital Twin</strong>
+          <span>
+            Create one live record for every parcel
+          </span>
+        </div>
 
-<div class="eyebrow">
-PROPOSED SOLUTION
-</div>
+        <div class="flow-arrow">→</div>
 
-<h2>
-One Live Digital Record
-for <span class="highlight">Every Project and Every Parcel.</span>
-</h2>
+        <div class="flow-node">
+          <strong>AI Intelligence</strong>
+          <span>
+            Detect risk, delays and anomalies
+          </span>
+        </div>
 
-<div class="system-visual">
+        <div class="flow-arrow">→</div>
 
-<div class="orbit-node top">
-<strong>🗺 GIS LOCATION</strong>
-<span>2D + 3D spatial visualization</span>
-</div>
+        <div class="flow-node">
+          <strong>Action</strong>
+          <span>
+            Route tasks and escalate unresolved issues
+          </span>
+        </div>
 
-<div class="orbit-node left">
-<strong>📄 DOCUMENTS</strong>
-<span>Digital records & verification</span>
-</div>
+      </div>
 
-<div class="orbit-node right">
-<strong>💰 COMPENSATION</strong>
-<span>Assessment → payment tracking</span>
-</div>
+    </div>
 
-<div class="orbit-node bottom">
-<strong>👨‍👩‍👧 R&R + POSSESSION</strong>
-<span>Field-level progress</span>
-</div>
+  </section>
 
-<div class="core-node">
-<h2>BHUMI<br>CHAIN</h2>
-<span>Live Parcel Digital Twin</span>
-</div>
 
-</div>
+  <!-- =====================================================
+       LIVE STORY
+       ===================================================== -->
 
-<div class="slide-footer">
-<span>Everything connected to one parcel identity</span>
-<span>GIS + Workflow + AI + Audit</span>
-</div>
+  <section class="section">
 
-</section>
+    <div class="container">
 
+      <div class="eyebrow reveal">
+        03 • Live Demonstration
+      </div>
 
-<!-- =====================================================
-SLIDE 5
-===================================================== -->
+      <h2 class="section-title reveal">
+        Follow one parcel<br>
+        through the entire system.
+      </h2>
 
-<section class="slide">
+      <p class="section-description reveal">
+        Instead of showing isolated features,
+        BHUMI-CHAIN demonstrates the complete
+        lifecycle using the Nagpur Outer Ring Road
+        demonstration project.
+      </p>
 
-<div class="grid-bg"></div>
 
-<div class="eyebrow">
-VALUE PROPOSITION
-</div>
+      <div class="story-grid">
 
-<h2>
-From <span class="highlight">"Where is my file?"</span>
-to <span class="highlight">"What needs action now?"</span>
-</h2>
+        <div class="story-timeline">
 
-<div class="four-col" style="margin-top:50px">
+          <div class="story-step active">
+            <b>India → Maharashtra</b>
+            <span>
+              National infrastructure project is monitored
+              at state and central levels.
+            </span>
+          </div>
 
-<div class="card">
-<div class="icon orange">📄</div>
-<h3>Document Driven</h3>
-<p>
-Manual searching through fragmented records.
-</p>
-</div>
 
-<div class="card">
-<div class="icon blue">📊</div>
-<h3>Status Driven</h3>
-<p>
-Digital monitoring of project and parcel progress.
-</p>
-</div>
+          <div class="story-step">
+            <b>Nagpur Outer Ring Road</b>
+            <span>
+              The project boundary and corridor are
+              represented using GIS data.
+            </span>
+          </div>
 
-<div class="card">
-<div class="icon purple">🧠</div>
-<h3>Intelligence Driven</h3>
-<p>
-Risk, delay and anomaly detection.
-</p>
-</div>
 
-<div class="card">
-<div class="icon green">⚙</div>
-<h3>Action Driven</h3>
-<p>
-Tasks, alerts and escalations route problems to responsible officers.
-</p>
-</div>
+          <div class="story-step">
+            <b>34 Digital Parcel Twins</b>
+            <span>
+              Every affected parcel has its own live
+              acquisition record.
+            </span>
+          </div>
 
-</div>
 
-<div class="card" style="margin-top:40px">
+          <div class="story-step">
+            <b>DEMO-123 Selected</b>
+            <span>
+              The system zooms into one parcel requiring
+              attention.
+            </span>
+          </div>
 
-<h3>
-The BHUMI-CHAIN Difference
-</h3>
 
-<p style="font-size:22px">
+          <div class="story-step">
+            <b>AI Detects Risk</b>
+            <span>
+              Compensation and workflow signals generate
+              a high-risk decision support alert.
+            </span>
+          </div>
 
-Instead of waiting for an officer to discover a problem,
-BHUMI-CHAIN continuously analyzes parcel status and
-identifies the <strong>next required action.</strong>
+        </div>
 
-</p>
 
-</div>
+        <div class="parcel-twin reveal-right">
 
-</section>
+          <div class="twin-header">
 
+            <h3>DEMO-123</h3>
 
-<!-- =====================================================
-SLIDE 6
-===================================================== -->
+            <span class="risk-high">
+              HIGH RISK
+            </span>
 
-<section class="slide">
+          </div>
 
-<div class="grid-bg"></div>
 
-<div class="eyebrow">
-COMPLETE ECOSYSTEM
-</div>
+          <div class="twin-grid">
 
-<h2>
-BHUMI-CHAIN Platform Architecture
-</h2>
+            <div class="twin-item">
+              <small>Owner</small>
+              <b>Demo Landholder</b>
+            </div>
 
-<div class="architecture">
+            <div class="twin-item">
+              <small>Location</small>
+              <b>Nagpur Region</b>
+            </div>
 
-<div class="arch-layer">
-<div class="arch-label">USER LAYER</div>
+            <div class="twin-item">
+              <small>Compensation</small>
+              <b>₹2.2M</b>
+            </div>
 
-<div class="arch-items">
-<div class="arch-item">Central Admin</div>
-<div class="arch-item">State Authority</div>
-<div class="arch-item">District Officer</div>
-<div class="arch-item">Project Officer</div>
-<div class="arch-item">Field Officer</div>
-</div>
-</div>
+            <div class="twin-item">
+              <small>Possession</small>
+              <b>Pending</b>
+            </div>
 
-<div class="arch-layer">
-<div class="arch-label">APPLICATION</div>
+            <div class="twin-item">
+              <small>Workflow</small>
+              <b>Under Review</b>
+            </div>
 
-<div class="arch-items">
-<div class="arch-item">Project Management</div>
-<div class="arch-item">Parcel Registry</div>
-<div class="arch-item">Workflow Engine</div>
-<div class="arch-item">Compensation</div>
-<div class="arch-item">R&R</div>
-</div>
-</div>
+            <div class="twin-item">
+              <small>AI Score</small>
+              <b>High</b>
+            </div>
 
-<div class="arch-layer">
-<div class="arch-label">SPATIAL LAYER</div>
+          </div>
 
-<div class="arch-items">
-<div class="arch-item">2D GIS</div>
-<div class="arch-item">GeoJSON</div>
-<div class="arch-item">Parcel Boundaries</div>
-<div class="arch-item">Cesium 3D</div>
-</div>
-</div>
+        </div>
 
-<div class="arch-layer">
-<div class="arch-label">INTELLIGENCE</div>
+      </div>
 
-<div class="arch-items">
-<div class="arch-item">Risk Engine</div>
-<div class="arch-item">Delay Prediction</div>
-<div class="arch-item">Anomaly Detection</div>
-<div class="arch-item">Recommendations</div>
-</div>
-</div>
+    </div>
 
-<div class="arch-layer">
-<div class="arch-label">DATA & TRUST</div>
+  </section>
 
-<div class="arch-items">
-<div class="arch-item">PostgreSQL</div>
-<div class="arch-item">Prisma</div>
-<div class="arch-item">Document History</div>
-<div class="arch-item">Audit Trail</div>
-</div>
-</div>
 
-</div>
+  <!-- =====================================================
+       STICKY ARCHITECTURE
+       ===================================================== -->
 
-</section>
+  <section class="architecture-wrapper">
 
+    <div class="architecture-left">
 
-<!-- =====================================================
-SLIDE 7
-===================================================== -->
+      <div class="eyebrow">
+        04 • System Architecture
+      </div>
 
-<section class="slide">
+      <h2>
+        One connected<br>
+        governance<br>
+        ecosystem.
+      </h2>
 
-<div class="grid-bg"></div>
+      <p>
+        As the user scrolls, each layer of BHUMI-CHAIN
+        becomes visible. Every layer contributes to one
+        continuously updated national source of truth.
+      </p>
 
-<div class="eyebrow">
-END-TO-END WORKFLOW
-</div>
+    </div>
 
-<h2>
-The Complete Land Acquisition Lifecycle
-</h2>
 
-<div class="timeline">
+    <div class="architecture-right">
 
-<div class="timeline-step">
-<span>01</span>
-<strong>Project Proposal</strong>
-</div>
+      <div class="architecture-step active">
 
-<div class="timeline-step">
-<span>02</span>
-<strong>Project Creation</strong>
-</div>
+        <div class="architecture-index">
+          01 / SPATIAL LAYER
+        </div>
 
-<div class="timeline-step">
-<span>03</span>
-<strong>GIS Data Import</strong>
-</div>
+        <h3>
+          2D GIS Intelligence
+        </h3>
 
-<div class="timeline-step">
-<span>04</span>
-<strong>Parcel Identification</strong>
-</div>
+        <p>
+          Government project boundaries, corridors and
+          affected land parcels are visualized and
+          geographically connected to the acquisition
+          lifecycle.
+        </p>
 
-<div class="timeline-step">
-<span>05</span>
-<strong>Digital Twin Creation</strong>
-</div>
+      </div>
 
-<div class="timeline-step">
-<span>06</span>
-<strong>Verification</strong>
-</div>
 
-<div class="timeline-step">
-<span>07</span>
-<strong>Notification</strong>
-</div>
+      <div class="architecture-step">
 
-<div class="timeline-step">
-<span>08</span>
-<strong>Award</strong>
-</div>
+        <div class="architecture-index">
+          02 / VISUALIZATION LAYER
+        </div>
 
-<div class="timeline-step">
-<span>09</span>
-<strong>Compensation</strong>
-</div>
+        <h3>
+          Cesium 3D Digital Twin
+        </h3>
 
-<div class="timeline-step">
-<span>10</span>
-<strong>R&R</strong>
-</div>
+        <p>
+          Imported spatial information is transformed
+          into an interactive 3D environment for
+          project-level and parcel-level visualization.
+        </p>
 
-<div class="timeline-step">
-<span>11</span>
-<strong>Possession</strong>
-</div>
+      </div>
 
-<div class="timeline-step">
-<span>12</span>
-<strong>Land Acquired</strong>
-</div>
 
-</div>
+      <div class="architecture-step">
 
-<div class="card" style="margin-top:35px">
+        <div class="architecture-index">
+          03 / DATA LAYER
+        </div>
 
-<h3>Continuous Intelligence Across Every Stage</h3>
+        <h3>
+          Parcel Digital Twin
+        </h3>
 
-<p>
+        <p>
+          Each parcel becomes a live digital entity
+          containing ownership, acquisition,
+          compensation, possession and verification data.
+        </p>
 
-🗺 Spatial Tracking &nbsp; • &nbsp;
-⚙ Workflow Automation &nbsp; • &nbsp;
-🧠 AI Risk Analysis &nbsp; • &nbsp;
-🔔 Alerts &nbsp; • &nbsp;
-🔐 Audit History
+      </div>
 
-</p>
 
-</div>
+      <div class="architecture-step">
 
-</section>
+        <div class="architecture-index">
+          04 / PROCESS LAYER
+        </div>
 
+        <h3>
+          Acquisition Workflow Engine
+        </h3>
 
-<!-- =====================================================
-SLIDE 8
-===================================================== -->
+        <p>
+          The platform tracks each stage from proposal
+          and verification to award, compensation,
+          rehabilitation and possession.
+        </p>
 
-<section class="slide">
+      </div>
 
-<div class="grid-bg"></div>
 
-<div class="eyebrow">
-PROJECT DATA INGESTION
-</div>
+      <div class="architecture-step">
 
-<h2>
-How Does the System Know
-<span class="highlight">What the Government Is Building?</span>
-</h2>
+        <div class="architecture-index">
+          05 / INTELLIGENCE LAYER
+        </div>
 
-<p class="subtitle">
+        <h3>
+          AI Decision Support
+        </h3>
 
-Government agencies already possess project maps, cadastral records,
-alignment data and parcel information. BHUMI-CHAIN converts these
-existing datasets into a live spatial project model.
+        <p>
+          Deterministic intelligence identifies
+          risk factors, compensation anomalies,
+          delayed workflows and recommended actions.
+        </p>
 
-</p>
+      </div>
 
-<div class="flow">
+    </div>
 
-<div class="flow-step">
-<div class="num">INPUT</div>
-<strong>CSV / Excel</strong>
-</div>
+  </section>
 
-<div class="flow-arrow">+</div>
 
-<div class="flow-step">
-<div class="num">INPUT</div>
-<strong>GeoJSON / GIS</strong>
-</div>
+  <!-- =====================================================
+       AI
+       ===================================================== -->
 
-<div class="flow-arrow">+</div>
+  <section class="section">
 
-<div class="flow-step">
-<div class="num">INPUT</div>
-<strong>Project Boundary</strong>
-</div>
+    <div class="container">
 
-<div class="flow-arrow">→</div>
+      <div class="eyebrow reveal">
+        05 • AI Intelligence
+      </div>
 
-<div class="flow-step">
-<div class="num">ENGINE</div>
-<strong>Validation</strong>
-</div>
+      <h2 class="section-title reveal">
+        The system doesn't just<br>
+        show data. It finds problems.
+      </h2>
 
-<div class="flow-arrow">→</div>
+      <p class="section-description reveal">
+        BHUMI-CHAIN continuously evaluates existing
+        parcel and workflow data to identify
+        high-risk conditions before they become
+        major project delays.
+      </p>
 
-<div class="flow-step">
-<div class="num">OUTPUT</div>
-<strong>2D + 3D Digital Twin</strong>
-</div>
 
-</div>
+      <div class="ai-monitor reveal">
 
-<div class="three-col" style="margin-top:40px">
+        <h3 style="margin-top:0;">
+          Nagpur ORR — Parcel Intelligence Monitor
+        </h3>
 
-<div class="card">
-<div class="icon blue">🗺</div>
-<h3>Project Boundary</h3>
-<p>
-Defines the spatial footprint of the infrastructure project.
-</p>
-</div>
+        <div class="parcel-list">
 
-<div class="card">
-<div class="icon green">⬡</div>
-<h3>Parcel Mapping</h3>
-<p>
-Each affected land parcel becomes individually identifiable.
-</p>
-</div>
+          <div class="parcel-row">
+            <span>DEMO-101</span>
+            <span>Normal</span>
+            <span>✓</span>
+          </div>
 
-<div class="card">
-<div class="icon purple">🌍</div>
-<h3>3D Visualization</h3>
-<p>
-The imported spatial model is visualized through Cesium.
-</p>
-</div>
+          <div class="parcel-row">
+            <span>DEMO-110</span>
+            <span>Moderate Risk</span>
+            <span>⚠</span>
+          </div>
 
-</div>
+          <div class="parcel-row danger">
+            <span>DEMO-123</span>
+            <span>Compensation Anomaly</span>
+            <span>HIGH</span>
+          </div>
 
-</section>
+          <div class="parcel-row">
+            <span>DEMO-124</span>
+            <span>Normal</span>
+            <span>✓</span>
+          </div>
 
+        </div>
 
-<!-- =====================================================
-SLIDE 9
-===================================================== -->
 
-<section class="slide">
+        <div class="ai-result">
 
-<div class="grid-bg"></div>
+          <div class="ai-card">
 
-<div class="eyebrow">
-GIS → DIGITAL TWIN
-</div>
+            <small>AI Finding</small>
 
-<h2>
-One Project. Two Spatial Views.
-One Source of Truth.
-</h2>
+            <h3>
+              ₹2.2M
+            </h3>
 
-<div class="two-col" style="margin-top:40px">
+            <p>
+              Compensation value deviates significantly
+              from comparable parcel patterns.
+            </p>
 
-<div class="card">
+          </div>
 
-<div class="icon blue">🗺</div>
 
-<h2 style="font-size:36px">
-2D GIS
-</h2>
+          <div class="ai-card">
 
-<p style="margin-top:20px">
+            <small>Recommended Action</small>
 
-Used for:
+            <h3>
+              Financial Verification
+            </h3>
 
-</p>
+            <p>
+              Assign responsible officer and begin
+              verification workflow before payment.
+            </p>
 
-<ul style="margin:15px 0 0 20px; line-height:2">
-<li>Parcel boundaries</li>
-<li>Acquisition status</li>
-<li>Land classification</li>
-<li>Search & filtering</li>
-<li>Field-level verification</li>
-</ul>
+          </div>
 
-</div>
+        </div>
 
-<div class="card">
+      </div>
 
-<div class="icon purple">🌍</div>
+    </div>
 
-<h2 style="font-size:36px">
-Cesium 3D
-</h2>
+  </section>
 
-<p style="margin-top:20px">
 
-Used for:
+  <!-- =====================================================
+       AUTOMATION
+       ===================================================== -->
 
-</p>
+  <section class="section story-section">
 
-<ul style="margin:15px 0 0 20px; line-height:2">
-<li>3D geographic context</li>
-<li>Project visualization</li>
-<li>Parcel fly-to</li>
-<li>Digital Twin interaction</li>
-<li>Executive demonstration</li>
-</ul>
+    <div class="container">
 
-</div>
+      <div class="eyebrow reveal">
+        06 • Automated Governance
+      </div>
 
-</div>
+      <h2 class="section-title reveal">
+        Detect → Assign → Track → Escalate.
+      </h2>
 
-<div class="card" style="margin-top:30px">
+      <p class="section-description reveal">
+        Once a high-risk issue is identified,
+        BHUMI-CHAIN transforms intelligence into
+        accountable action.
+      </p>
 
-<h3>Parcel Selection Synchronization</h3>
 
-<p>
+      <div class="automation-flow">
 
-Click Parcel → Open Digital Twin → View Details →
-Switch to 3D → Same Parcel Selected → Fly To Parcel
+        <div class="automation-card reveal">
+          <div class="number">01</div>
+          <h3>Risk Detected</h3>
+          <p>
+            AI intelligence identifies a compensation,
+            workflow or acquisition issue.
+          </p>
+        </div>
 
-</p>
 
-</div>
+        <div class="automation-card reveal">
+          <div class="number">02</div>
+          <h3>Task Created</h3>
+          <p>
+            The system creates a structured task linked
+            to the affected parcel.
+          </p>
+        </div>
 
-</section>
 
+        <div class="automation-card reveal">
+          <div class="number">03</div>
+          <h3>Officer Assigned</h3>
+          <p>
+            Responsibility is routed to the appropriate
+            authority based on role and jurisdiction.
+          </p>
+        </div>
 
-<!-- =====================================================
-SLIDE 10
-===================================================== -->
 
-<section class="slide">
+        <div class="automation-card reveal">
+          <div class="number">04</div>
+          <h3>SLA Monitoring</h3>
+          <p>
+            Deadlines and pending actions are continuously
+            tracked for accountability.
+          </p>
+        </div>
 
-<div class="grid-bg"></div>
 
-<div class="eyebrow">
-PARCEL DIGITAL TWIN
-</div>
+        <div class="automation-card reveal">
+          <div class="number">05</div>
+          <h3>Escalation</h3>
+          <p>
+            Unresolved issues can be escalated through
+            district, state and central levels.
+          </p>
+        </div>
 
-<h2>
-Every Land Parcel Becomes
-<span class="highlight">A Live Digital Entity.</span>
-</h2>
+      </div>
 
-<div class="two-col" style="margin-top:35px">
+    </div>
 
-<div class="twin-card">
+  </section>
 
-<div class="twin-header">
 
-<h3 style="color:white;font-size:28px">
-PARCEL DEMO-101
-</h3>
+  <!-- =====================================================
+       NATIONAL COMMAND CENTER
+       ===================================================== -->
 
-<p style="opacity:.8;margin-top:8px">
-Nagpur Outer Ring Road Demonstration Project
-</p>
+  <section class="national">
 
-</div>
+    <div class="national-center">
 
-<div class="twin-grid">
+      <div class="eyebrow">
+        07 • National Command Center
+      </div>
 
-<div class="twin-stat">
-<span>Owner</span>
-<strong>Ramesh Sharma</strong>
-</div>
+      <h2>
+        From one parcel<br>
+        to national insight.
+      </h2>
 
-<div class="twin-stat">
-<span>Survey No.</span>
-<strong>145/2</strong>
-</div>
+      <p>
+        BHUMI-CHAIN connects the smallest operational
+        unit of land acquisition to project,
+        district, state and national decision making.
+      </p>
 
-<div class="twin-stat">
-<span>Acquisition</span>
-<strong>Under Verification</strong>
-</div>
 
-<div class="twin-stat">
-<span>Compensation</span>
-<strong>₹18.4 Lakh</strong>
-</div>
+      <div class="command-flow">
 
-<div class="twin-stat">
-<span>Possession</span>
-<strong>Pending</strong>
-</div>
+        <div class="command-node">
+          PARCEL • DEMO-123
+        </div>
 
-<div class="twin-stat">
-<span>AI Risk</span>
-<strong>HIGH</strong>
-</div>
+        <div class="command-arrow">
+          ↓
+        </div>
 
-</div>
+        <div class="command-node">
+          NAGPUR OUTER RING ROAD PROJECT
+        </div>
 
-</div>
+        <div class="command-arrow">
+          ↓
+        </div>
 
-<div>
+        <div class="command-node">
+          DISTRICT / STATE MONITORING
+        </div>
 
-<div class="card">
+        <div class="command-arrow">
+          ↓
+        </div>
 
-<h3>What the Digital Twin Connects</h3>
+        <div class="command-node">
+          🇮🇳 NATIONAL COMMAND CENTER
+        </div>
 
-<p>
+      </div>
 
-Each parcel connects its physical location with its administrative,
-financial and workflow lifecycle.
 
-</p>
+      <div class="final-line">
+        FROM ONE PARCEL TO NATIONAL DECISION SUPPORT.
+      </div>
 
-<div class="flow" style="margin-top:25px">
+    </div>
 
-<div class="flow-step">
-<strong>Identity</strong>
-</div>
+  </section>
 
-<div class="flow-step">
-<strong>Ownership</strong>
-</div>
 
-<div class="flow-step">
-<strong>Documents</strong>
-</div>
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
 
-<div class="flow-step">
-<strong>Workflow</strong>
-</div>
+  <footer class="footer">
 
-<div class="flow-step">
-<strong>Payment</strong>
-</div>
+    BHUMI-CHAIN • Smart India Hackathon •
+    Problem Statement 26016
 
-<div class="flow-step">
-<strong>Risk</strong>
-</div>
+  </footer>
 
-</div>
 
-</div>
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
 
-</div>
+  <script>
 
-</div>
+    /* =====================================================
+       SCROLL PROGRESS
+       ===================================================== */
 
-</section>
+    const progress = document.getElementById(
+      "scrollProgress"
+    );
 
+    window.addEventListener(
+      "scroll",
+      () => {
 
-<!-- =====================================================
-SLIDE 11
-===================================================== -->
+        const scrollTop =
+          window.scrollY;
 
-<section class="slide">
+        const height =
+          document.documentElement.scrollHeight -
+          window.innerHeight;
 
-<div class="grid-bg"></div>
+        const percent =
+          (scrollTop / height) * 100;
 
-<div class="eyebrow">
-ACQUISITION WORKFLOW
-</div>
+        progress.style.width =
+          percent + "%";
 
-<h2>
-A Controlled State-Based Acquisition Engine
-</h2>
+      }
+    );
 
-<div class="flow" style="margin-top:45px">
 
-<div class="flow-step">
-<div class="status blue">STAGE 01</div>
-<strong>Verification</strong>
-</div>
+    /* =====================================================
+       REVEAL OBSERVER
+       ===================================================== */
 
-<div class="flow-arrow">→</div>
+    const revealObserver =
+      new IntersectionObserver(
+        (entries) => {
 
-<div class="flow-step">
-<div class="status orange">STAGE 02</div>
-<strong>Notification</strong>
-</div>
+          entries.forEach(
+            (entry) => {
 
-<div class="flow-arrow">→</div>
+              if (
+                entry.isIntersecting
+              ) {
 
-<div class="flow-step">
-<div class="status blue">STAGE 03</div>
-<strong>Award</strong>
-</div>
+                entry.target.classList.add(
+                  "active"
+                );
 
-<div class="flow-arrow">→</div>
+              }
 
-<div class="flow-step">
-<div class="status orange">STAGE 04</div>
-<strong>Compensation</strong>
-</div>
+            }
+          );
 
-<div class="flow-arrow">→</div>
-
-<div class="flow-step">
-<div class="status green">STAGE 05</div>
-<strong>Possession</strong>
-</div>
-
-</div>
-
-<div class="three-col" style="margin-top:45px">
-
-<div class="card">
-<div class="icon blue">👨‍💼</div>
-<h3>Role-Based Actions</h3>
-<p>
-Only authorized officers can perform workflow transitions.
-</p>
-</div>
-
-<div class="card">
-<div class="icon orange">⏱</div>
-<h3>Deadline Monitoring</h3>
-<p>
-Stuck stages and overdue actions are continuously identified.
-</p>
-</div>
-
-<div class="card">
-<div class="icon red">🚨</div>
-<h3>Escalation</h3>
-<p>
-Critical delays and disputes can trigger alerts and escalation.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-SLIDE 12
-===================================================== -->
-
-<section class="slide">
-
-<div class="grid-bg"></div>
-
-<div class="eyebrow">
-AI INTELLIGENCE
-</div>
-
-<h2>
-AI That Explains
-<span class="highlight">What Requires Attention.</span>
-</h2>
-
-<p class="subtitle">
-
-The prototype currently uses a deterministic weighted intelligence engine
-built from real workflow and parcel conditions. This provides explainable
-decision support without requiring external paid AI APIs.
-
-</p>
-
-<div class="ai-engine">
-
-<div class="ai-column">
-
-<div class="icon red">⚠</div>
-
-<h3>Risk Intelligence</h3>
-
-<ul>
-<li>Disputed acquisition</li>
-<li>Workflow on hold</li>
-<li>Unpaid compensation</li>
-<li>Possession pending</li>
-<li>Stuck workflow</li>
-</ul>
-
-</div>
-
-<div class="ai-column">
-
-<div class="icon orange">⏱</div>
-
-<h3>Delay Intelligence</h3>
-
-<ul>
-<li>Workflow age analysis</li>
-<li>45+ day delay thresholds</li>
-<li>Critical stage detection</li>
-<li>Project delay aggregation</li>
-</ul>
-
-</div>
-
-<div class="ai-column">
-
-<div class="icon purple">📈</div>
-
-<h3>Anomaly Intelligence</h3>
-
-<ul>
-<li>Compensation comparison</li>
-<li>Median deviation detection</li>
-<li>High-value outliers</li>
-<li>Low-value anomalies</li>
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-SLIDE 13
-===================================================== -->
-
-<section class="slide">
-
-<div class="grid-bg"></div>
-
-<div class="eyebrow">
-EXPLAINABLE DECISION SUPPORT
-</div>
-
-<h2>
-BHUMI-CHAIN Does Not Just Show a Risk Score.
-<span class="highlight">It Explains Why.</span>
-</h2>
-
-<div class="two-col" style="margin-top:40px">
-
-<div class="card">
-
-<div class="icon red">🔴</div>
-
-<h3>Example: Parcel Risk = 87/100</h3>
-
-<div style="margin-top:25px">
-
-<p>Top risk drivers:</p>
-
-<ul style="margin:15px 0 0 20px;line-height:2">
-
-<li>Workflow stuck for more than 45 days</li>
-
-<li>Compensation sanctioned but unpaid</li>
-
-<li>Possession not completed</li>
-
-<li>Acquisition dispute detected</li>
-
-</ul>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="icon green">⚙</div>
-
-<h3>Recommended Action</h3>
-
-<div style="margin-top:25px">
-
-<p>
-
-The system converts intelligence into actionable recommendations.
-
-</p>
-
-<div class="flow" style="margin-top:20px">
-
-<div class="flow-step">
-<strong>Detect</strong>
-</div>
-
-<div class="flow-arrow">→</div>
-
-<div class="flow-step">
-<strong>Explain</strong>
-</div>
-
-<div class="flow-arrow">→</div>
-
-<div class="flow-step">
-<strong>Assign</strong>
-</div>
-
-<div class="flow-arrow">→</div>
-
-<div class="flow-step">
-<strong>Escalate</strong>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-SLIDE 14
-===================================================== -->
-
-<section class="slide">
-
-<div class="grid-bg"></div>
-
-<div class="eyebrow">
-DEMO PROJECT
-</div>
-
-<h2>
-Nagpur Outer Ring Road
-<span class="highlight">Digital Demonstration Project</span>
-</h2>
-
-<div class="four-col" style="margin-top:40px">
-
-<div class="card">
-
-<div class="icon blue">🗺</div>
-
-<h3>Spatial Model</h3>
-
-<p>
-Irregular project boundary and highway corridor.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon green">⬡</div>
-
-<h3>34 Parcels</h3>
-
-<p>
-Individual parcel geometry and rich lifecycle data.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon orange">⚠</div>
-
-<h3>Risk Cases</h3>
-
-<p>
-Disputed, delayed and high-risk scenarios.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon purple">🧠</div>
-
-<h3>AI Analysis</h3>
-
-<p>
-Risk, delay and compensation anomaly intelligence.
-</p>
-
-</div>
-
-</div>
-
-<div class="card" style="margin-top:35px">
-
-<h3>Demonstration Purpose</h3>
-
-<p>
-
-The Nagpur Outer Ring Road dataset is synthetic demonstration data designed
-to simulate realistic acquisition states, workflow bottlenecks,
-compensation anomalies and parcel-level risks.
-
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-SLIDE 15
-===================================================== -->
-
-<section class="slide">
-
-<div class="grid-bg"></div>
-
-<div class="eyebrow">
-CURRENT PROTOTYPE STATUS
-</div>
-
-<h2>
-Built as a Functional SIH Prototype
-</h2>
-
-<div class="three-col" style="margin-top:40px">
-
-<div class="card">
-
-<div class="icon green">✓</div>
-
-<h3>Phase 1–3</h3>
-
-<p>
-Foundation, Government UI, Authentication, RBAC and Project Creation.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon green">✓</div>
-
-<h3>Phase 4–5</h3>
-
-<p>
-2D GIS, Cesium 3D and Parcel Digital Twin.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon green">✓</div>
-
-<h3>Phase 6–7</h3>
-
-<p>
-Acquisition Workflow and AI Decision Support.
-</p>
-
-</div>
-
-</div>
-
-<div class="architecture" style="margin-top:35px">
-
-<div class="arch-layer">
-
-<div class="arch-label">VERIFIED</div>
-
-<div class="arch-items">
-
-<div class="arch-item">Authentication</div>
-
-<div class="arch-item">RBAC</div>
-
-<div class="arch-item">GIS</div>
-
-<div class="arch-item">Cesium 3D</div>
-
-<div class="arch-item">Parcel Twins</div>
-
-<div class="arch-item">Workflow</div>
-
-<div class="arch-item">AI Intelligence</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-SLIDE 16
-===================================================== -->
-
-<section class="slide">
-
-<div class="grid-bg"></div>
-
-<div class="eyebrow">
-INNOVATION
-</div>
-
-<h2>
-What Makes BHUMI-CHAIN Different?
-</h2>
-
-<div class="four-col" style="margin-top:40px">
-
-<div class="card">
-
-<div class="icon blue">🌍</div>
-
-<h3>Spatial + Administrative Twin</h3>
-
-<p>
-Not just a map. Every spatial parcel connects to real administrative status.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon purple">🧠</div>
-
-<h3>Explainable Intelligence</h3>
-
-<p>
-Risk scores include the factors causing the risk.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon orange">⚙</div>
-
-<h3>Action-Oriented Workflow</h3>
-
-<p>
-The platform identifies what needs action and who should act.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon green">🔐</div>
-
-<h3>Traceable Governance</h3>
-
-<p>
-Workflow actions and changes can be preserved in an audit history.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-SLIDE 17
-===================================================== -->
-
-<section class="slide">
-
-<div class="grid-bg"></div>
-
-<div class="eyebrow">
-NATIONAL SCALE
-</div>
-
-<h2>
-From One Parcel to a National Command Center
-</h2>
-
-<div class="flow" style="margin-top:45px">
-
-<div class="flow-step">
-<div class="num">LEVEL 01</div>
-<strong>Parcel</strong>
-</div>
-
-<div class="flow-arrow">→</div>
-
-<div class="flow-step">
-<div class="num">LEVEL 02</div>
-<strong>Project</strong>
-</div>
-
-<div class="flow-arrow">→</div>
-
-<div class="flow-step">
-<div class="num">LEVEL 03</div>
-<strong>District</strong>
-</div>
-
-<div class="flow-arrow">→</div>
-
-<div class="flow-step">
-<div class="num">LEVEL 04</div>
-<strong>State</strong>
-</div>
-
-<div class="flow-arrow">→</div>
-
-<div class="flow-step">
-<div class="num">LEVEL 05</div>
-<strong>National</strong>
-</div>
-
-</div>
-
-<div class="three-col" style="margin-top:45px">
-
-<div class="card">
-<h3>Central Government</h3>
-<p>
-National acquisition progress, state comparisons and critical project risks.
-</p>
-</div>
-
-<div class="card">
-<h3>State Government</h3>
-<p>
-State-level monitoring, district bottlenecks and intervention priorities.
-</p>
-</div>
-
-<div class="card">
-<h3>Field Authorities</h3>
-<p>
-Assigned tasks, parcel verification and workflow actions.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-SLIDE 18
-===================================================== -->
-
-<section class="slide">
-
-<div class="grid-bg"></div>
-
-<div class="eyebrow">
-SCALABILITY
-</div>
-
-<h2>
-Designed for Nationwide Expansion
-</h2>
-
-<div class="three-col" style="margin-top:40px">
-
-<div class="card">
-
-<div class="icon blue">🏛</div>
-
-<h3>Multi-Level Governance</h3>
-
-<p>
-Central, State, District and Field-level access through RBAC.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon green">🔌</div>
-
-<h3>Integration Ready</h3>
-
-<p>
-Architecture supports API integration with land records,
-cadastral systems and government portals.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="icon purple">📈</div>
-
-<h3>Expandable Intelligence</h3>
-
-<p>
-Current deterministic AI engine can evolve into advanced ML or LLM-based intelligence.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-SLIDE 19
-===================================================== -->
-
-<section class="slide">
-
-<div class="grid-bg"></div>
-
-<div class="eyebrow">
-ROADMAP
-</div>
-
-<h2>
-Prototype → National Digital Infrastructure
-</h2>
-
-<div class="timeline">
-
-<div class="timeline-step">
-<span>NOW</span>
-<strong>Functional SIH Prototype</strong>
-</div>
-
-<div class="timeline-step">
-<span>NEXT</span>
-<strong>Compensation + R&R Module</strong>
-</div>
-
-<div class="timeline-step">
-<span>NEXT</span>
-<strong>Audit & Provenance</strong>
-</div>
-
-<div class="timeline-step">
-<span>NEXT</span>
-<strong>National Command Center</strong>
-</div>
-
-<div class="timeline-step">
-<span>FUTURE</span>
-<strong>Government API Integration</strong>
-</div>
-
-</div>
-
-<div class="card" style="margin-top:45px">
-
-<h3>Future Intelligence</h3>
-
-<p>
-
-Historical project data can eventually enable advanced predictive models
-for acquisition duration, compensation risk, dispute probability
-and infrastructure delay forecasting.
-
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-SLIDE 20
-===================================================== -->
-
-<section class="slide cover">
-
-<div class="grid-bg"></div>
-
-<div class="cover-content">
-
-<div class="eyebrow">
-BHUMI-CHAIN
-</div>
-
-<h1 style="font-size:clamp(48px,7vw,100px)">
-Every Parcel.
-Every Action.
-One National View.
-</h1>
-
-<div class="cover-line"></div>
-
-<p class="subtitle">
-
-Transforming land acquisition from fragmented documentation into a
-live, intelligent and action-oriented national digital ecosystem.
-
-</p>
-
-<div class="cover-meta">
-
-<div class="meta-chip">
-🗺 GIS DIGITAL TWIN
-</div>
-
-<div class="meta-chip">
-⚙ WORKFLOW ENGINE
-</div>
-
-<div class="meta-chip">
-🧠 AI INTELLIGENCE
-</div>
-
-<div class="meta-chip">
-🔐 GOVERNANCE & TRUST
-</div>
-
-</div>
-
-<h2 style="margin-top:60px;font-size:32px">
-Thank You
-</h2>
-
-<p style="margin-top:12px;color:var(--gray-500)">
-Questions & Discussion
-</p>
-
-</div>
-
-</section>
-
-
-</div>
-
-
-<!-- =====================================================
-CONTROLS
-===================================================== -->
-
-<div class="slide-number">
-<span id="currentSlide">1</span>
-/
-<span id="totalSlides">20</span>
-</div>
-
-<div class="controls">
-
-<button onclick="prevSlide()">
-←
-</button>
-
-<button onclick="nextSlide()">
-→
-</button>
-
-</div>
-
-
-<script>
-
-/* =========================================================
-   PRESENTATION ENGINE
-   ========================================================= */
-
-const slides = document.querySelectorAll(".slide");
-
-let currentSlide = 0;
-
-const totalSlides = slides.length;
-
-document.getElementById("totalSlides").textContent =
-    totalSlides;
-
-
-/* SHOW SLIDE */
-
-function showSlide(index) {
-
-    if (index < 0) {
-        index = totalSlides - 1;
-    }
-
-    if (index >= totalSlides) {
-        index = 0;
-    }
-
-    slides.forEach((slide, i) => {
-
-        slide.classList.remove("active");
-
-        if (i === index) {
-            slide.classList.add("active");
+        },
+        {
+          threshold: 0.15
         }
-
-    });
-
-    currentSlide = index;
-
-    document.getElementById("currentSlide").textContent =
-        currentSlide + 1;
-
-    updateProgress();
-
-}
+      );
 
 
-/* NEXT */
+    document
+      .querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right"
+      )
+      .forEach(
+        (element) => {
 
-function nextSlide() {
+          revealObserver.observe(
+            element
+          );
 
-    showSlide(currentSlide + 1);
-
-}
-
-
-/* PREVIOUS */
-
-function prevSlide() {
-
-    showSlide(currentSlide - 1);
-
-}
+        }
+      );
 
 
-/* PROGRESS BAR */
+    /* =====================================================
+       STORY TIMELINE
+       ===================================================== */
 
-function updateProgress() {
-
-    const percentage =
-        ((currentSlide + 1) / totalSlides) * 100;
-
-    document.getElementById("progress").style.width =
-        percentage + "%";
-
-}
+    const storySteps =
+      document.querySelectorAll(
+        ".story-step"
+      );
 
 
-/* KEYBOARD */
+    const storyObserver =
+      new IntersectionObserver(
+        (entries) => {
 
-document.addEventListener(
-    "keydown",
-    function(event) {
+          entries.forEach(
+            (entry) => {
 
-        if (
-            event.key === "ArrowRight" ||
-            event.key === " "
-        ) {
+              if (
+                entry.isIntersecting
+              ) {
 
-            nextSlide();
+                storySteps.forEach(
+                  step =>
+                    step.classList.remove(
+                      "active"
+                    )
+                );
+
+                entry.target.classList.add(
+                  "active"
+                );
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold: 0.65
+        }
+      );
+
+
+    storySteps.forEach(
+      step =>
+        storyObserver.observe(
+          step
+        )
+    );
+
+
+    /* =====================================================
+       ARCHITECTURE SCROLL ACTIVATION
+       ===================================================== */
+
+    const architectureSteps =
+      document.querySelectorAll(
+        ".architecture-step"
+      );
+
+
+    const architectureObserver =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach(
+            (entry) => {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                architectureSteps.forEach(
+                  step =>
+                    step.classList.remove(
+                      "active"
+                    )
+                );
+
+                entry.target.classList.add(
+                  "active"
+                );
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold: 0.55
+        }
+      );
+
+
+    architectureSteps.forEach(
+      step =>
+        architectureObserver.observe(
+          step
+        )
+    );
+
+
+    /* =====================================================
+       SMOOTH PARALLAX HERO
+       ===================================================== */
+
+    const heroVisual =
+      document.querySelector(
+        ".hero-visual"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (!heroVisual) return;
+
+        const y =
+          window.scrollY;
+
+        if (y < window.innerHeight) {
+
+          heroVisual.style.transform =
+            `translateY(${y * 0.08}px)`;
 
         }
 
-        if (
-            event.key === "ArrowLeft"
-        ) {
-
-            prevSlide();
-
-        }
-
-        if (
-            event.key === "Home"
-        ) {
-
-            showSlide(0);
-
-        }
-
-        if (
-            event.key === "End"
-        ) {
-
-            showSlide(totalSlides - 1);
-
-        }
-
-    }
-);
+      }
+    );
 
 
-/* TOUCH SUPPORT */
-
-let touchStartX = 0;
-
-document.addEventListener(
-    "touchstart",
-    event => {
-
-        touchStartX =
-            event.changedTouches[0].screenX;
-
-    }
-);
-
-document.addEventListener(
-    "touchend",
-    event => {
-
-        const touchEndX =
-            event.changedTouches[0].screenX;
-
-        const difference =
-            touchStartX - touchEndX;
-
-        if (difference > 60) {
-            nextSlide();
-        }
-
-        if (difference < -60) {
-            prevSlide();
-        }
-
-    }
-);
-
-
-/* INITIALIZE */
-
-updateProgress();
-
-</script>
+  </script>
 
 </body>
 </html>
